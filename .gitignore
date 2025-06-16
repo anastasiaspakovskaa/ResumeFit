@@ -1,0 +1,38 @@
+# Byte-compiled files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+venv/
+env/
+.venv/
+ENV/
+
+# VSCode or PyCharm
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python + Streamlit logs
+*.log
+*.sqlite3
+.streamlit/
+
+# API keys or secrets (if in file)
+.env
+.env.*
+
+# Pip metadata
+pip-log.txt
+
+# Output/cache folders
+*.egg-info/
+dist/
+build/
+
+# Streamlit magic
+.streamlit/config.toml
