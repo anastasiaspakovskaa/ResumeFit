@@ -15,17 +15,16 @@ Experienced backend developer with 3 years of Python experience. Built several i
 def analyze_resume_fit(job_description: str, resume_text: str):
     prompt = f"""
         You are a career coach.
-        
-        Compare the resume to the job description and return:
-        - fit_score: a number between 0 and 100
-        - summary: short paragraph
-        - strengths: list of 3 bullet points
-        - weaknesses: list of 3 bullet points
-        - suggestions: list of 3 improvement suggestions
-        
+    
+        Compare the resume to the job description and return ONLY a valid JSON without explanations or extra formatting.
+    
+        {{"fit_score": number (0-100), "summary": string, "strengths": [string, string, string], "weaknesses": [string, string, string], "suggestions": [string, string, string]}}
+    
+        Do NOT include anything else—no explanations, no markdown, only template showed above.
+    
         Job Description:
         \"\"\"{job_description}\"\"\"
-        
+    
         Resume:
         \"\"\"{resume_text}\"\"\"
         """
