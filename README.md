@@ -8,11 +8,20 @@ This is a small web application made to compare your skills from a resume with j
    ```bash
    git clone https://github.com/anastasiaspakovskaa/ResumeFit.git
    cd ResumeFit
+   ```
 2. Install dependencies:
     ```bash
     pip install -r requirements.txt
+    ```
 3. Launch the application:
+
+   FastAPI
     ```bash
-    python main.py
-4. Open the provided local address in your browser.
-5. Upload your resume and provide job requirements.
+    uvicorn main:app --reload
+    ```
+    Streamlit
+    ```bash
+    streamlit run app.py
+    ```
+5. Open the provided local address in your browser.
+6. Upload your resume and provide job requirements.
