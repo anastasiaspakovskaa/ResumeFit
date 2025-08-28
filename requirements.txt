@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+streamlit
+requests
+pydantic
+groq
+dotenv
+PyPDF2

@@ -1,6 +1,7 @@
 import streamlit as st
 import requests
 import json
+import PyPDF2
 
 API_URL = "http://localhost:8000/analyze"
 
@@ -9,6 +10,11 @@ st.title("📄💼 Resume vs Job Description Analyzer")
 
 job_desc = st.text_area("📝 Paste Job Description", height=200)
 resume = st.text_area("📋 Paste Resume Text", height=200)
+uploaded_file = st.file_uploader("Upload your resume (PDF)", type="pdf")
+if uploaded_file is not None:
+    pdf_reader = PyPDF2.PdfReader(uploaded_file)
+    resume = " ".join([page.extract_text() for page in pdf_reader.pages if page.extract_text()])
+    st.text_area("Extracted Resume Text", resume, height=200)
 
 response = "{\n  \"fit_score\": 80,\n  \"summary\": \"Strong Python background with relevant experience in building backend applications\",\n  \"strengths\": [\n    \"Experience with Python and Flask\",\n    \"Familiarity with Docker\",\n    \"Recent experience with AWS deployment\"\n  ],\n  \"weaknesses\": [\n    \"Limited experience with REST APIs\",\n    \"No experience with FastAPI\",\n    \"Basic knowledge of Docker\"\n  ],\n  \"suggestions\": [\n    \"Highlight REST API experience from previous projects\",\n    \"Invest in learning FastAPI for improved job prospects\",\n    \"Develop advanced Docker skills for better deployment options\"\n  ]\n}"
 
